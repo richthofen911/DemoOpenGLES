@@ -11,14 +11,19 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class MyGLRenderer implements GLSurfaceView.Renderer{
 
+    Triangle mTriangle;
+
     public void onSurfaceCreated(GL10 unused, EGLConfig config){
         //set the background frame color
         GLES20.glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+
+        mTriangle = new Triangle();
     }
 
     public void onDrawFrame(GL10 unused){
         //redraw background color
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+        mTriangle.draw();
     }
 
     public void onSurfaceChanged(GL10 unused, int width, int height){
